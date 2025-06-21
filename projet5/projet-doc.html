@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet Installation serveur Debian</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .text-f44c7f { color: #f44c7f !important; }
+    body {
+      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 80px;
+    }
+    .back-link {
+      color: #f44c7f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .doc-section {
+      padding: 40px 20px;
+      background: #181818;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #f44c7f;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    code {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 5px;
+      color: #f44c7f;
+    }
+    pre {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="projet5.html" class="back-link">&larr; Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+
+    <div class="doc-section">
+      <h2>Objectif du projet</h2>
+      <p>Installer et configurer un serveur Debian 11 complet avec Apache, PostgreSQL et PHP. Documenter l'intégralité du processus pour pouvoir reproduire facilement l'installation.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Ressources officielles</h2>
+      <ul>
+        <li><a href="https://www.debian.org/releases/bullseye/amd64/" target="_blank" style="color:#f44c7f;">Documentation officielle Debian 11 (Bullseye)</a></li>
+        <li><a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/" target="_blank" style="color:#f44c7f;">Télécharger l’image ISO Debian 11 (DVD amd64)</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Étapes réalisées</h2>
+      <ul>
+        <li>Téléchargement et vérification de l'image ISO Debian 11</li>
+        <li>Création de la machine virtuelle</li>
+        <li>Installation du système Debian</li>
+        <li>Installation et configuration de Apache, PHP et PostgreSQL</li>
+        <li>Création de la documentation avec captures d'écran</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Commandes principales utilisées</h2>
+      <pre>
+# Mise à jour du système
+sudo apt update
+sudo apt upgrade
+
+# Installation d'Apache
+sudo apt install apache2
+
+# Installation de PHP
+sudo apt install php libapache2-mod-php
+
+# Installation de PostgreSQL
+sudo apt install postgresql postgresql-contrib
+
+# Vérification des services
+systemctl status apache2
+systemctl status postgresql
+      </pre>
+    </div>
+
+    <div class="doc-section">
+      <h2>Compétences acquises</h2>
+      <ul>
+        <li>Administration Linux Debian</li>
+        <li>Installation de serveur web Apache et PHP</li>
+        <li>Gestion de base de données PostgreSQL</li>
+        <li>Documentation technique en anglais</li>
+        <li>Automatisation et configuration système</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet 13 (Stage Rio Tinto)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .text-f44c7f { color: #f44c7f !important; }
+    body {
+      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 80px;
+    }
+    .back-link {
+      color: #f44c7f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .doc-section {
+      padding: 40px 20px;
+      background: #181818;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #f44c7f;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    code {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 5px;
+      color: #f44c7f;
+    }
+    pre {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="projet13.html" class="back-link">&larr; Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+
+    <div class="doc-section">
+      <h2>Objectif du projet</h2>
+      <p>Mettre en place un système de gouvernance des données industrielles pour améliorer l'accès et la compréhension des données issues des capteurs industriels (cuves d'électrolyse) au sein du Laboratoire de Recherche et Fabrication (LRF) de Rio Tinto. </p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Technologies utilisées</h2>
+      <ul>
+        <li>PostgreSQL</li>
+        <li>Docker & Docker Compose</li>
+        <li>DataHub (catalogage de données)</li>
+        <li>Grafana + Volkov Labs Business Forms</li>
+        <li>Raspberry Pi OS</li>
+        <li>Dockge</li>
+        <li>JavaScript / SQL</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Travaux réalisés</h2>
+      <ul>
+        <li>Analyse comparative des solutions open-source de data catalog</li>
+        <li>Installation et configuration de DataHub en Docker</li>
+        <li>Création de domaines, tags, propriétés structurées, requêtes SQL types</li>
+        <li>Création d'interfaces de saisie de données dans Grafana (insertion & update SQL)</li>
+        <li>Migration de certains services Docker sur Raspberry Pi 4B via Dockge</li>
+        <li>Rédaction de la documentation technique et formation de l'équipe métier</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Exemple de commandes utilisées</h2>
+      <pre>
+sudo docker-compose up -d
+docker ps
+git clone https://github.com/datahub-project/datahub
+sudo apt install postgresql
+psql -U postgres -d bddlrf
+      </pre>
+    </div>
+
+    <div class="doc-section">
+      <h2>Problématiques rencontrées & solutions</h2>
+      <ul>
+        <li>Incompatibilité Docker ARM64 &rarr; migration sur machine Linux classique.</li>
+        <li>Restrictions de sécurité réseau &rarr; déploiement local hors réseau Rio Tinto.</li>
+        <li>Dépendance métier aux experts &rarr; documentation centralisée des tables et schémas.</li>
+        <li>Difficulté utilisateurs sur SQL &rarr; formulaires interactifs avec Grafana Business Forms.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Références techniques utilisées</h2>
+      <ul>
+        <li><a href="https://datahubproject.io/docs/" target="_blank">Documentation DataHub</a></li>
+        <li><a href="https://volkovlabs.io/plugins/grafana-business-forms/" target="_blank">Grafana Business Forms</a></li>
+        <li><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></li>
+        <li><a href="https://www.postgresql.org/docs/" target="_blank">PostgreSQL Documentation</a></li>
+        <li><a href="https://github.com/louislam/dockge" target="_blank">Dockge (Docker Manager)</a></li>
+        <li><a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi OS</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

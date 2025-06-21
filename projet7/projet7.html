@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet 7 – Lan Maker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .text-f44c7f { color: #f44c7f !important; }
+    body {
+      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      padding-top: 80px;
+    }
+    .back-link {
+      color: #f44c7f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .hero-section {
+      text-align: center;
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .hero-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-section p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .project-features {
+      padding: 40px 20px;
+      background: #181818;
+      border-radius: 20px;
+    }
+    .project-features h3 {
+      margin-bottom: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .btn-demo {
+      margin-top: 30px;
+      background: #f44c7f;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 30px;
+      transition: background 0.3s ease;
+    }
+    .btn-demo:hover {
+      background: #d9366a;
+    }
+    .tags {
+      margin-top: 20px;
+    }
+    .tag {
+      display: inline-block;
+      background: #333;
+      color: #f44c7f;
+      padding: 5px 15px;
+      border-radius: 30px;
+      margin: 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .tag:hover {
+      background: #f44c7f;
+      color: #fff;
+    }
+    .zoom-effect {
+      transition: transform 1.2s ease;
+    }
+    .carousel-item.active .zoom-effect {
+      transform: scale(1.05);
+    }
+    .carousel-item img {
+      object-fit: cover;
+      height: 600px;
+    }
+  </style>
+</head>
+<body onscroll="revealSections()">
+  <div class="container">
+    <a href="../page-projets.html" class="back-link">&larr; Liste Projet</a>
+
+    <section class="hero-section" id="hero">
+      <h1>Projet 7 : Lan Maker</h1>
+      <p>Développement d’une application de gestion de tournois esports : modélisation, développement Java, interface JavaFX et gestion projet complet.</p>
+
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">JavaFX</span>
+        <span class="tag">UML</span>
+        <span class="tag">Gestion de projet</span>
+        <span class="tag">Algorithmes</span>
+      </div>
+    </section>
+
+    <div id="projectCarousel" class="carousel slide carousel-fade my-5" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/82C9B759-7F96-49D5-AE62-B60A69F788D4_1_105_c.jpeg" class="d-block w-100 rounded zoom-effect" alt="Lan Maker Logo">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/image copy.png" class="d-block w-100 rounded zoom-effect" alt="Java">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/image.png" class="d-block w-100 rounded zoom-effect" alt="UML Diagrammes">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    </div>
+
+    <section class="project-description mb-5">
+      <div class="mb-3">
+        <i class="fas fa-info-circle text-f44c7f"></i>
+      </div>
+      <h3><i class="fas fa-lightbulb text-f44c7f me-2"></i>À propos du projet</h3>
+      <p>En équipe, nous avons développé l’application <strong>Lan Maker</strong> destinée à faciliter l’organisation de tournois esports. Le projet a couvert l’ensemble du cycle de développement logiciel : gestion de projet, modélisation UML, conception fonctionnelle, développement en Java et création d’une interface utilisateur en JavaFX.</p>
+      <p>De la gestion des contraintes algorithmiques aux diagrammes de classes et séquences, chaque membre de l’équipe a contribué à la conception robuste et au développement fonctionnel de l’application.</p>
+    </section>
+
+    <section class="project-features">
+      <h3>Compétences développées :</h3>
+      <ul>
+        <li>Gestion de projet collaboratif</li>
+        <li>Modélisation UML : cas d’utilisation, classes et séquences</li>
+        <li>Programmation orientée objet avancée (Java)</li>
+        <li>Création d’interface avec JavaFX</li>
+        <li>Implémentation d’algorithmes métier</li>
+      </ul>
+      <a href="projet-doc.html" class="btn btn-demo">Voir la documentation</a>
+    </section>
+  </div>
+
+  <script>
+    function revealSections() {
+      const hero = document.getElementById('hero');
+      const scrollY = window.scrollY + window.innerHeight * 0.8;
+      if (scrollY >= hero.offsetTop) {
+        hero.classList.add('visible');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealSections);
+    window.addEventListener('scroll', revealSections);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

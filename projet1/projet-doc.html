@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet Debian</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .text-f44c7f { color: #f44c7f !important; }
+    body {
+      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 80px;
+    }
+    .back-link {
+      color: #f44c7f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .doc-section {
+      padding: 40px 20px;
+      background: #181818;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #f44c7f;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    code {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 5px;
+      color: #f44c7f;
+    }
+    pre {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="projet1.html" class="back-link">&larr; Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+
+    <div class="doc-section">
+      <h2>Objectif du projet</h2>
+      <p>Installer et configurer un système Debian 11 sur une machine virtuelle, installer les logiciels de base nécessaires et mettre en place un environnement de travail fonctionnel.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Étapes réalisées</h2>
+      <ul>
+        <li>Téléchargement de l'ISO officiel Debian 11</li>
+        <li>Création de la machine virtuelle </li>
+        <li>Installation pas à pas de Debian 11</li>
+        <li>Configuration des utilisateurs et de l'accès root</li>
+        <li>Installation de <code>Firefox</code> et des outils supplémentaires</li>
+        <li>Vérification de la bonne configuration réseau</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Commandes importantes</h2>
+      <pre>
+sudo apt update
+sudo apt upgrade
+sudo apt install firefox-esr
+      </pre>
+    </div>
+
+    <div class="doc-section">
+      <h2>Compétences acquises</h2>
+      <ul>
+        <li>Installation système complète</li>
+        <li>Configuration réseau et utilisateurs</li>
+        <li>Utilisation des gestionnaires de paquets <code>apt</code></li>
+        <li>Travail en autonomie</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

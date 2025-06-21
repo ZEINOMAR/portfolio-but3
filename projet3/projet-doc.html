@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet Base de données Titanic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .text-f44c7f { color: #f44c7f !important; }
+    body {
+      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 80px;
+    }
+    .back-link {
+      color: #f44c7f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .doc-section {
+      padding: 40px 20px;
+      background: #181818;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #f44c7f;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    code {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 5px;
+      color: #f44c7f;
+    }
+    pre {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="projet3.html" class="back-link">&larr; Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+
+    <div class="doc-section">
+      <h2>Objectif du projet</h2>
+      <p>Créer une base de données relationnelle autour du naufrage du Titanic, incluant la conception du modèle entité-association, la création des tables SQL, l’insertion des données et la production d’un compte-rendu technique en anglais.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Étapes réalisées</h2>
+      <ul>
+        <li>Recherche d'informations pertinentes sur le naufrage</li>
+        <li>Spécification des exigences fonctionnelles</li>
+        <li>Modélisation entité-association (MERISE)</li>
+        <li>Implémentation des tables SQL</li>
+        <li>Insertion et structuration des données</li>
+        <li>Rédaction d'un compte-rendu technique (EN)</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Exemple de commandes SQL utilisées</h2>
+      <pre>
+CREATE TABLE Passagers (
+  id INT PRIMARY KEY,
+  nom VARCHAR(100),
+  age INT,
+  classe VARCHAR(10),
+  survivant BOOLEAN
+);
+
+INSERT INTO Passagers (id, nom, age, classe, survivant)
+VALUES (1, 'John Smith', 32, '1ère', TRUE);
+      </pre>
+    </div>
+
+    <div class="doc-section">
+      <h2>Compétences acquises</h2>
+      <ul>
+        <li>Modélisation de base de données (EA/SEA)</li>
+        <li>SQL : création de tables, insertion, requêtes simples</li>
+        <li>Structuration et normalisation des données</li>
+        <li>Communication technique en anglais</li>
+        <li>Travail en équipe et rigueur dans la documentation</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
