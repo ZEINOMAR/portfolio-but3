@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<text x="800.0" y="62.0" font-size="34" fill="#fff" text-anchor="middle" font-weight="700">Architecture par composition ascendante</text>
+<text x="800.0" y="98.0" font-size="18" fill="#aaa" text-anchor="middle" font-weight="400">Chaque struct embarque sa struct parente comme champ — aucun enum intermédiaire</text>
+<path d="M800 162 C 800 200.0, 420 180.0, 420 216" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M800 162 C 800 200.0, 1180 180.0, 1180 216" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M420 262 C 420 300.0, 200 280.0, 200 316" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M420 262 C 420 300.0, 430 280.0, 430 316" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M420 262 C 420 300.0, 640 280.0, 640 316" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M1180 262 C 1180 300.0, 1180 280.0, 1180 316" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M200 362 C 200 400.0, 200 380.0, 200 416" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M1180 362 C 1180 400.0, 1000 380.0, 1000 416" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M1180 362 C 1180 400.0, 1230 380.0, 1230 416" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M1000 462 C 1000 450.0, 1440 430.0, 1440 416" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M1000 462 C 1000 495.0, 1000 475.0, 1000 506" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="725.0" y="118" width="150" height="44" rx="10" fill="#232329" stroke="#f44c7f" stroke-width="2"/>
+<text x="800.0" y="146.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">EntiteData</text>
+<rect x="334.0" y="218" width="172" height="44" rx="10" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<text x="420.0" y="246.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">NonAnimeData</text>
+<rect x="1110.5" y="218" width="139" height="44" rx="10" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<text x="1180.0" y="246.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">AnimeData</text>
+<rect x="108.5" y="318" width="183" height="44" rx="10" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<text x="200.0" y="346.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">ContenantData</text>
+<rect x="327.5" y="318" width="205" height="44" rx="10" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<text x="430.0" y="346.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">ConsommableData</text>
+<rect x="565.0" y="318" width="150" height="44" rx="10" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<text x="640.0" y="346.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">BourseData</text>
+<rect x="1077.5" y="318" width="205" height="44" rx="10" fill="#232329" stroke="#ffc857" stroke-width="2"/>
+<text x="1180.0" y="346.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">CommunicantData</text>
+<rect x="114.0" y="418" width="172" height="44" rx="10" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<text x="200.0" y="446.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">CachetteData</text>
+<rect x="941.5" y="418" width="117" height="44" rx="10" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<text x="1000.0" y="446.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">PnjData</text>
+<rect x="1155.0" y="418" width="150" height="44" rx="10" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<text x="1230.0" y="446.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">PlayerData</text>
+<rect x="1381.5" y="418" width="117" height="44" rx="10" fill="#232329" stroke="#ef5350" stroke-width="2"/>
+<text x="1440.0" y="446.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Stalker</text>
+<rect x="892.0" y="508" width="216" height="44" rx="10" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<text x="1000.0" y="536.0" font-size="17" fill="#fff" text-anchor="middle" font-weight="600" font-family="'SFMono-Regular', Menlo, Consolas, monospace">IntelligibleData</text>
+<text x="1470.0" y="535.0" font-size="15" fill="#aaa" text-anchor="end" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">→ MarchandData · CitoyenData</text>
+<text x="60.0" y="540.0" font-size="15" fill="#aaa" text-anchor="start" font-weight="400">Modules transverses : Effets · Competence (trait Lancable) · Equipement · Salle · Monde · CycleJour · Combat</text>
+
+</svg>

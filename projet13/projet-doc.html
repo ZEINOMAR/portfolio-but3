@@ -4,60 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documentation – Projet 13 (Stage Rio Tinto)</title>
+  <meta name="description" content="Documentation technique — Mise en place d&#x27;un système de gouvernance des données pour l&#x27;industrie métallurgique chez Rio Tinto (LRF), incluant DataHub, PostgreSQL et Grafana Business Forms." />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    .text-f44c7f { color: #f44c7f !important; }
-    body {
-      background: linear-gradient(to bottom, #121212 0%, #1e1e1e 100%);
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding-top: 80px;
-    }
-    .back-link {
-      color: #f44c7f;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    .doc-section {
-      padding: 40px 20px;
-      background: #181818;
-      border-radius: 20px;
-      margin-bottom: 30px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    h2 {
-      margin-top: 30px;
-      margin-bottom: 20px;
-      color: #f44c7f;
-    }
-    ul li {
-      margin-bottom: 10px;
-    }
-    code {
-      background: #333;
-      padding: 2px 8px;
-      border-radius: 5px;
-      color: #f44c7f;
-    }
-    pre {
-      background: #222;
-      padding: 15px;
-      border-radius: 10px;
-      overflow-x: auto;
-    }
-  </style>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
 </head>
-<body>
-  <div class="container">
-    <a href="projet13.html" class="back-link">&larr; Retour au projet</a>
+<body class="page-doc">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="projet13.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au projet</a>
 
     <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
 
@@ -123,8 +93,13 @@ psql -U postgres -d bddlrf
         <li><a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi OS</a></li>
       </ul>
     </div>
-  </div>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
 </body>
 </html>

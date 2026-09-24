@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet 18 – Yalta Chess</title>
+  <meta name="description" content="Implémentation complète du Yalta, variante des échecs à 3 joueurs sur plateau hexagonal de 96 cases, en Java 21 et JavaFX, avec une IA alpha-bêta multithreadée." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-project">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html" class="active">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="../page-projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Tous les projets</a>
+
+    <section class="hero-section" id="hero">
+      <h1>Projet 18 : Yalta Chess</h1>
+      <p>Implémentation complète du Yalta, variante des échecs à 3 joueurs sur plateau hexagonal de 96 cases, en Java 21 et JavaFX, avec une IA alpha-bêta multithreadée.</p>
+      <div class="context"><span><i class="fas fa-graduation-cap text-f44c7f me-1"></i>Master ILSEN – Avignon Université</span><span><i class="fas fa-calendar text-f44c7f me-1"></i>M1 · 2025–2026</span></div>
+
+      <div class="tags">
+        <span class="tag">Java 21</span>
+        <span class="tag">JavaFX</span>
+        <span class="tag">Maven</span>
+        <span class="tag">JUnit 5</span>
+        <span class="tag">MVC</span>
+        <span class="tag">Design Patterns</span>
+        <span class="tag">IA Alpha-Bêta</span>
+      </div>
+    </section>
+
+    <div id="projectCarousel" class="carousel slide carousel-fade my-5" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/cover.svg" class="d-block w-100 rounded" alt="Yalta Chess — échecs à 3 joueurs">
+          <div class="carousel-caption">Yalta Chess — échecs à 3 joueurs</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/plateau.svg" class="d-block w-100 rounded" alt="Plateau hexagonal à 96 cases et surbrillances de l&#x27;interface">
+          <div class="carousel-caption">Plateau hexagonal à 96 cases et surbrillances de l&#x27;interface</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/architecture.svg" class="d-block w-100 rounded" alt="Architecture MVC et patrons de conception">
+          <div class="carousel-caption">Architecture MVC et patrons de conception</div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    </div>
+
+    <section class="key-figures">
+      <div class="figure-card"><strong>96 cases</strong><span>plateau hexagonal à 3 secteurs</span></div>
+      <div class="figure-card"><strong>~5 600</strong><span>lignes de Java</span></div>
+      <div class="figure-card"><strong>121 tests</strong><span>JUnit 5 sur 8 classes de test</span></div>
+      <div class="figure-card"><strong>3 patterns</strong><span>Strategy · Command · Observer</span></div>
+    </section>
+
+    <section class="project-description mb-5">
+      <h3><i class="fas fa-lightbulb text-f44c7f me-2"></i>À propos du projet</h3>
+      <p>Le Yalta est une variante des échecs pour <strong>trois joueurs</strong>, jouée sur un plateau hexagonal de 96 cases divisé en trois secteurs. Sa géométrie rend les déplacements non triviaux : les lignes et diagonales changent de direction au passage d'un secteur à l'autre, au centre du plateau.</p>
+      <p>J'ai développé le jeu de zéro : <strong>modélisation de la topologie du plateau</strong>, génération des coups légaux, détection de l'échec, du mat, du pat et des nulles, gestion de l'élimination d'un joueur (la partie continue entre les survivants) et interface graphique JavaFX complète.</p>
+      <p>L'adversaire artificiel repose sur une recherche <strong>alpha-bêta « paranoïaque »</strong> (l'IA suppose que ses deux adversaires jouent contre elle), parallélisée sur un pool de threads avec limite de temps, et dont la fonction d'évaluation est interchangeable grâce au pattern Strategy.</p>
+    </section>
+
+    <section class="project-features">
+      <h3><i class="fas fa-user-gear text-f44c7f me-2"></i>Fonctionnalités développées</h3>
+      <ul>
+        <li>Moteur de règles complet : déplacements par secteur, promotion, échec, mat, pat, règle des 50 coups, matériel insuffisant</li>
+        <li>Élimination d'un joueur maté et poursuite de la partie à deux</li>
+        <li>IA alpha-bêta paranoïaque multithreadée (pool de threads, limite de 3 s, profondeur 3) exécutée hors du thread JavaFX</li>
+        <li>Deux niveaux de difficulté : évaluation matérielle (facile) ou positionnelle (difficile)</li>
+        <li>Interface JavaFX : cases légales en vert, dernier coup en jaune, roi en échec en rouge, animation de la pièce sélectionnée</li>
+        <li>HUD : badges joueurs, chronomètre, score matériel, pièces capturées</li>
+        <li>Historique des coups, annulation (Undo) et export de la partie en <code>.txt</code></li>
+      </ul>
+    </section>
+
+    <section class="project-features">
+      <h3>Compétences développées :</h3>
+      <ul>
+        <li>Conception orientée objet et architecture MVC stricte</li>
+        <li>Mise en œuvre de patrons de conception (Strategy, Command, Observer, Factory)</li>
+        <li>Algorithmique des jeux : Min-Max, élagage alpha-bêta, ordonnancement des coups</li>
+        <li>Programmation concurrente en Java (ExecutorService, Future, thread daemon, Platform.runLater)</li>
+        <li>Géométrie et topologie d'un plateau non standard</li>
+        <li>Tests unitaires JUnit 5 et build Maven</li>
+      </ul>
+      <a href="projet-doc.html" class="btn btn-demo">Voir la documentation</a>
+    </section>
+
+    <nav class="project-nav" aria-label="Autres projets">
+      <a href="../projet17/projet17.html"><small>&larr; Projet précédent</small><span>Moteur de jeu RPG en Rust</span></a>
+      <span></span>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script>
+    function revealSections() {
+      const hero = document.getElementById('hero');
+      const scrollY = window.scrollY + window.innerHeight * 0.8;
+      if (scrollY >= hero.offsetTop) {
+        hero.classList.add('visible');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealSections);
+    window.addEventListener('scroll', revealSections);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

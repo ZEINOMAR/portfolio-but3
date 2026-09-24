@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet 16 (Networker – NLP &amp; NER Asimov)</title>
+  <meta name="description" content="Pipeline Python de traitement automatique du langage qui extrait les personnages de romans d&#x27;Asimov, résout leurs alias et reconstruit le réseau de leurs relations sous forme de graphe." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-doc">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="projet16.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+    <p class="doc-subtitle">Networker – NLP &amp; NER Asimov — Extraction d&#x27;entités nommées et graphes de relations</p>
+
+    <div class="doc-section doc-toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#s1">Objectif du projet</a></li>
+        <li><a href="#s2">Technologies utilisées</a></li>
+        <li><a href="#s3">Pipeline de traitement</a></li>
+        <li><a href="#s4">Résolution d&#x27;alias</a></li>
+        <li><a href="#s5">Résultat obtenu</a></li>
+        <li><a href="#s6">Exemple de commandes utilisées</a></li>
+        <li><a href="#s7">Problématiques rencontrées &amp; solutions</a></li>
+        <li><a href="#s8">Références techniques utilisées</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-section" id="s1">
+      <h2>Objectif du projet</h2>
+      <p>Reconstruire automatiquement, pour chaque chapitre d'un roman, le graphe des relations entre personnages : qui interagit avec qui, avec quelle intensité et sur quel ton. Le corpus d'évaluation comprend <em>Prélude à Fondation</em> (19 chapitres) et <em>Les Cavernes d'acier</em> (18 chapitres) d'Isaac Asimov.</p>
+    </div>
+    <div class="doc-section" id="s2">
+      <h2>Technologies utilisées</h2>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Domaine</th><th>Technologies</th></tr></thead>
+          <tbody>
+          <tr><td>Langage</td><td>Python ≥ 3.12, package installable (<code>pyproject.toml</code>)</td></tr>
+          <tr><td>NLP</td><td>spaCy (<code>fr_core_news_sm</code>), NLTK, regex, normalisation Unicode</td></tr>
+          <tr><td>Graphes</td><td>NetworkX, export GraphML, rendu Matplotlib</td></tr>
+          <tr><td>Données</td><td>pandas, JSON (tables de verbes, alias, paires de polarité)</td></tr>
+          <tr><td>Outillage</td><td>CLI argparse, journalisation par module (gamuLogger), extraction PDF (pypdf)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="doc-section" id="s3">
+      <h2>Pipeline de traitement</h2>
+      <img src="assets/pipeline.svg" class="doc-figure" alt="Pipeline de traitement">
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Étape</th><th>Description</th></tr></thead>
+          <tbody>
+          <tr><td>1. Corpus</td><td>extraction du texte des PDF et découpage par chapitre</td></tr>
+          <tr><td>2. Normalisation</td><td>nettoyage Unicode, ponctuation, tokenisation</td></tr>
+          <tr><td>3. NER</td><td>détection des entités <code>PER</code> avec spaCy</td></tr>
+          <tr><td>4. Résolution d'alias</td><td>regroupement des variantes d'un même nom (titres et particules ignorés, similarité par distance d'édition)</td></tr>
+          <tr><td>5. Co-occurrences</td><td>comptage des personnages apparaissant dans une fenêtre de 25 tokens</td></tr>
+          <tr><td>6. Polarité</td><td>score +1 / −1 / 0 selon les verbes, avec un prior JSON qui s'enrichit automatiquement</td></tr>
+          <tr><td>7. Graphe</td><td>construction NetworkX, export GraphML, image PNG et CSV de soumission</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="doc-section" id="s4">
+      <h2>Résolution d&#x27;alias</h2>
+      <p>Extrait réel : la similarité entre deux parties de noms repose sur une distance de Levenshtein normalisée, après avoir écarté les titres (« Dr », « capitaine »…) et les particules (« de », « le »…).</p>
+      <pre><code>def part_score(part1: str, part2: str) -&gt; float:
+    if part1 == part2:
+        return 1.0
+    len1, len2 = len(part1), len(part2)
+    if min(len1, len2) / max(len1, len2) &lt; 0.5:
+        return 0.0
+    # distance d&#x27;édition (programmation dynamique)
+    ...
+    return (max(len1, len2) - dp[len1][len2]) / max(len1, len2)</code></pre>
+    </div>
+    <div class="doc-section" id="s5">
+      <h2>Résultat obtenu</h2>
+      <img src="assets/graphe.svg" class="doc-figure" alt="Graphe de Prélude à Fondation">
+      <p>Graphe agrégé sur les 19 chapitres de <em>Prélude à Fondation</em> : Hari Seldon est logiquement le personnage central ; ses relations les plus fortes sont avec Hummin, Raych, Tisalver et Venabili. La couleur des arêtes indique la polarité détectée.</p>
+    </div>
+    <div class="doc-section" id="s6">
+      <h2>Exemple de commandes utilisées</h2>
+      <pre><code>pip install -e .
+
+# Traiter tout un dossier : images, structures intermédiaires,
+# labels des sommets et export GraphML
+networker -gilm --dir corpus_asimov_leaderboard/prelude_a_fondation
+
+# Traiter un seul chapitre en mode verbeux
+networker -v --text chapter_1.txt.preprocessed --save-graph-image</code></pre>
+    </div>
+    <div class="doc-section" id="s7">
+      <h2>Problématiques rencontrées &amp; solutions</h2>
+      <ul>
+        <li>Un personnage apparaît sous plusieurs noms &rarr; <strong>table d'alias</strong> inférée à partir de la similarité des noms et des co-occurrences dominantes.</li>
+        <li>Faux positifs du NER (lieux, titres pris pour des personnes) &rarr; <strong>filtrage</strong> par listes de titres / particules et normalisation.</li>
+        <li>Polarité peu fiable sur un seul chapitre &rarr; <strong>accumulation du signal</strong> sur tout le livre et auto-enrichissement d'un fichier de paires connues au-delà d'un seuil.</li>
+        <li>Débogage d'un pipeline long &rarr; <strong>sauvegarde des structures intermédiaires</strong> et niveaux de log configurables par module.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s8">
+      <h2>Références techniques utilisées</h2>
+      <ul>
+        <li><a href="https://spacy.io/usage/linguistic-features#named-entities" target="_blank" rel="noopener">spaCy — Named Entity Recognition</a></li>
+        <li><a href="https://spacy.io/models/fr" target="_blank" rel="noopener">Modèle fr_core_news_sm</a></li>
+        <li><a href="https://networkx.org/documentation/stable/" target="_blank" rel="noopener">NetworkX</a></li>
+        <li><a href="http://graphml.graphdrawing.org/" target="_blank" rel="noopener">Format GraphML</a></li>
+        <li><a href="https://www.nltk.org/" target="_blank" rel="noopener">NLTK</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

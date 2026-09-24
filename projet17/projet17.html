@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet 17 – Moteur de jeu RPG en Rust</title>
+  <meta name="description" content="Moteur de jeu de rôle textuel écrit de zéro en Rust, piloté par des fichiers JSON, avec un jeu complet construit dessus : Chicken Run." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-project">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html" class="active">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="../page-projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Tous les projets</a>
+
+    <section class="hero-section" id="hero">
+      <h1>Projet 17 : Moteur de jeu RPG en Rust</h1>
+      <p>Moteur de jeu de rôle textuel écrit de zéro en Rust, piloté par des fichiers JSON, avec un jeu complet construit dessus : Chicken Run.</p>
+      <div class="context"><span><i class="fas fa-graduation-cap text-f44c7f me-1"></i>Master ILSEN – Avignon Université</span><span><i class="fas fa-calendar text-f44c7f me-1"></i>M1 · 2025–2026</span><span><i class="fas fa-users text-f44c7f me-1"></i>Projet en équipe</span></div>
+
+      <div class="tags">
+        <span class="tag">Rust</span>
+        <span class="tag">serde</span>
+        <span class="tag">JSON</span>
+        <span class="tag">cargo test</span>
+        <span class="tag">Architecture</span>
+        <span class="tag">RPG textuel</span>
+      </div>
+    </section>
+
+    <div id="projectCarousel" class="carousel slide carousel-fade my-5" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/cover.svg" class="d-block w-100 rounded" alt="Chicken Run — RPG textuel propulsé par le moteur">
+          <div class="carousel-caption">Chicken Run — RPG textuel propulsé par le moteur</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/architecture.svg" class="d-block w-100 rounded" alt="Hiérarchie de structs par composition ascendante">
+          <div class="carousel-caption">Hiérarchie de structs par composition ascendante</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/carte.svg" class="d-block w-100 rounded" alt="Carte des 15 salles chargée depuis monde.json">
+          <div class="carousel-caption">Carte des 15 salles chargée depuis monde.json</div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    </div>
+
+    <section class="key-figures">
+      <div class="figure-card"><strong>25 modules</strong><span>Rust documentés (///, //!)</span></div>
+      <div class="figure-card"><strong>61 tests</strong><span>unitaires et d&#x27;intégration</span></div>
+      <div class="figure-card"><strong>15 salles</strong><span>monde 100 % data-driven</span></div>
+      <div class="figure-card"><strong>Jour / Nuit</strong><span>cycle à ticks</span></div>
+    </section>
+
+    <section class="project-description mb-5">
+      <h3><i class="fas fa-lightbulb text-f44c7f me-2"></i>À propos du projet</h3>
+      <p>Ce projet consiste à concevoir un <strong>moteur de jeu de rôle textuel</strong> générique en Rust, puis à réaliser un jeu complet par-dessus. Le jeu, <strong>Chicken Run</strong>, met en scène une poule qui tente de s'évader d'une ferme : il faut explorer 15 salles, récupérer des clés, combattre, commercer et se cacher la nuit pour échapper au Stalker qui patrouille.</p>
+      <p>Le moteur est entièrement <strong>piloté par les données</strong> : le monde, le joueur, la boutique et l'ennemi patrouilleur sont décrits dans des fichiers JSON désérialisés avec <code>serde</code>. Un scénariste peut ainsi créer une nouvelle aventure sans toucher au code Rust. En cas de fichier illisible, le moteur bascule sur des valeurs par défaut.</p>
+      <p>L'architecture repose sur une <strong>composition ascendante</strong> de structs (chaque struct embarque sa struct parente) plutôt que sur l'héritage, absent en Rust, et sur des traits comme <code>Lancable</code> pour les compétences.</p>
+    </section>
+
+    <section class="project-features">
+      <h3>Compétences développées :</h3>
+      <ul>
+        <li>Programmation système en Rust : ownership, emprunts, traits, enums et pattern matching</li>
+        <li>Conception d'architecture par composition et modélisation orientée données</li>
+        <li>Sérialisation / désérialisation JSON avec serde</li>
+        <li>Mise en œuvre de mécaniques de jeu : combat au tour par tour, effets temporaires, IA de patrouille, cycle jour/nuit</li>
+        <li>Tests automatisés avec <code>cargo test</code> et documentation avec <code>cargo doc</code></li>
+        <li>Travail en équipe avec Git</li>
+      </ul>
+      <a href="projet-doc.html" class="btn btn-demo">Voir la documentation</a>
+    </section>
+
+    <nav class="project-nav" aria-label="Autres projets">
+      <a href="../projet16/projet16.html"><small>&larr; Projet précédent</small><span>Networker – NLP &amp; NER Asimov</span></a>
+      <a class="next" href="../projet18/projet18.html"><small>Projet suivant &rarr;</small><span>Yalta Chess</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script>
+    function revealSections() {
+      const hero = document.getElementById('hero');
+      const scrollY = window.scrollY + window.innerHeight * 0.8;
+      if (scrollY >= hero.offsetTop) {
+        hero.classList.add('visible');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealSections);
+    window.addEventListener('scroll', revealSections);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

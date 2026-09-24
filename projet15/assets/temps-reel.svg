@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<text x="800.0" y="62.0" font-size="34" fill="#fff" text-anchor="middle" font-weight="700">Diffusion temps réel avec Socket.io</text>
+<rect x="80" y="250" width="230" height="100" rx="14" fill="#232329" stroke="#f44c7f" stroke-width="2"/>
+<rect x="80" y="250" width="6" height="100" rx="3" fill="#f44c7f"/>
+<text x="195.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Client A</text>
+<text x="195.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">clique sur ♥</text>
+<rect x="560" y="240" width="280" height="120" rx="14" fill="#232329" stroke="#f44c7f" stroke-width="2"/>
+<rect x="560" y="240" width="6" height="120" rx="3" fill="#f44c7f"/>
+<text x="700.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Serveur Node.js</text>
+<text x="700.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">$addToSet / $pull</text>
+<rect x="1180" y="110" width="260" height="90" rx="14" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<rect x="1180" y="110" width="6" height="90" rx="3" fill="#4dd0e1"/>
+<text x="1310.0" y="151.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Client B</text>
+<text x="1310.0" y="175.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">compteur mis à jour</text>
+<rect x="1180" y="255" width="260" height="90" rx="14" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<rect x="1180" y="255" width="6" height="90" rx="3" fill="#4dd0e1"/>
+<text x="1310.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Client C</text>
+<text x="1310.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">compteur mis à jour</text>
+<rect x="1180" y="400" width="260" height="90" rx="14" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<rect x="1180" y="400" width="6" height="90" rx="3" fill="#4dd0e1"/>
+<text x="1310.0" y="441.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Client D</text>
+<text x="1310.0" y="465.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">compteur mis à jour</text>
+<line x1="312" y1="290" x2="558" y2="290" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<text x="435.0" y="282.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">POST /posts/:id/like</text>
+<line x1="842" y1="280" x2="1178" y2="155" stroke="#4dd0e1" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="842" y1="300" x2="1178" y2="300" stroke="#4dd0e1" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1010.0" y="292.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">io.emit('like')</text>
+<line x1="842" y1="320" x2="1178" y2="445" stroke="#4dd0e1" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="558" y1="320" x2="312" y2="320" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="435.0" y="345.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">réponse JSON</text>
+<text x="800.0" y="540.0" font-size="18" fill="#bbb" text-anchor="middle" font-weight="400">Même principe pour : connexions / déconnexions, partages de posts et liste des internautes connectés</text>
+
+</svg>

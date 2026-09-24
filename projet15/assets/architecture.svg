@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<text x="800.0" y="62.0" font-size="34" fill="#fff" text-anchor="middle" font-weight="700">Architecture de CERISoNet</text>
+<text x="800.0" y="98.0" font-size="18" fill="#aaa" text-anchor="middle" font-weight="400">Double persistance : relationnel pour les comptes, document pour le contenu social</text>
+<rect x="60" y="250" width="250" height="100" rx="14" fill="#232329" stroke="#dd0031" stroke-width="2"/>
+<rect x="60" y="250" width="6" height="100" rx="3" fill="#dd0031"/>
+<text x="185.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">SPA Angular 21</text>
+<text x="185.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">composants · services</text>
+<rect x="470" y="230" width="290" height="140" rx="14" fill="#232329" stroke="#f44c7f" stroke-width="2"/>
+<rect x="470" y="230" width="6" height="140" rx="3" fill="#f44c7f"/>
+<text x="615.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Serveur Express 5</text>
+<text x="615.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">HTTPS · port 3185</text>
+<text x="615.0" y="350.0" font-size="13" fill="#999" text-anchor="middle" font-weight="400">sessions · multer · CORS</text>
+<rect x="930" y="120" width="270" height="90" rx="14" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<rect x="930" y="120" width="6" height="90" rx="3" fill="#42a5f5"/>
+<text x="1065.0" y="161.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">PostgreSQL</text>
+<text x="1065.0" y="185.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">utilisateurs · auth</text>
+<rect x="930" y="255" width="270" height="90" rx="14" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<rect x="930" y="255" width="6" height="90" rx="3" fill="#66bb6a"/>
+<text x="1065.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">MongoDB</text>
+<text x="1065.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">posts · likes · commentaires</text>
+<rect x="930" y="390" width="270" height="90" rx="14" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<rect x="930" y="390" width="6" height="90" rx="3" fill="#66bb6a"/>
+<text x="1065.0" y="431.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">MongoDB</text>
+<text x="1065.0" y="455.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">sessions (MySession)</text>
+<rect x="1330" y="255" width="220" height="90" rx="14" fill="#232329" stroke="#ffc857" stroke-width="2"/>
+<rect x="1330" y="255" width="6" height="90" rx="3" fill="#ffc857"/>
+<text x="1440.0" y="296.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">/uploads</text>
+<text x="1440.0" y="320.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">images des posts</text>
+<rect x="470" y="450" width="290" height="80" rx="14" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<rect x="470" y="450" width="6" height="80" rx="3" fill="#4dd0e1"/>
+<text x="615.0" y="486.0" font-size="20" fill="#fff" text-anchor="middle" font-weight="600">Socket.io</text>
+<text x="615.0" y="510.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">événements temps réel</text>
+<line x1="312" y1="285" x2="468" y2="285" stroke="#bbb" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arr)"/>
+<text x="390.0" y="277.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">REST / JSON</text>
+<line x1="312" y1="330" x2="468" y2="480" stroke="#4dd0e1" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arr)"/>
+<text x="360.0" y="430.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">WebSocket</text>
+<line x1="760" y1="270" x2="928" y2="170" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="844.0" y="212.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">pg</text>
+<line x1="760" y1="300" x2="928" y2="300" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="844.0" y="292.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">mongoose / driver</text>
+<line x1="760" y1="330" x2="928" y2="430" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="820.0" y="400.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">sessions</text>
+<line x1="1202" y1="300" x2="1328" y2="300" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1265.0" y="292.0" font-size="14" fill="#ccc" text-anchor="middle" font-weight="400">multer</text>
+<line x1="615" y1="372" x2="615" y2="448" stroke="#4dd0e1" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arr)"/>
+
+</svg>

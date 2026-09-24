@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<rect width="1600" height="600" fill="url(#glow)"/>
+<g opacity="0.5"><rect x="30" y="40" width="560" height="520" rx="14" fill="#0c0c0e" stroke="#333"/>
+<rect x="30" y="40" width="560" height="36" rx="14" fill="#232329"/>
+<rect x="30" y="62" width="560" height="14" fill="#232329"/>
+<circle cx="52" cy="58" r="6" fill="#ef5350"/>
+<circle cx="74" cy="58" r="6" fill="#ffc857"/>
+<circle cx="96" cy="58" r="6" fill="#66bb6a"/>
+<text x="310.0" y="63.0" font-size="14" fill="#999" text-anchor="middle" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">cargo run</text>
+<text x="54.0" y="110.0" font-size="17" fill="#ffc857" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">=== Poulailler Principal ===</text>
+<text x="54.0" y="138.0" font-size="17" fill="#ccc" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">La paille crisse sous vos pattes...</text>
+<text x="54.0" y="166.0" font-size="17" fill="#888" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Sorties : nord</text>
+<text x="54.0" y="194.0" font-size="17" fill="#fff" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace"></text>
+<text x="54.0" y="222.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; nord</text>
+<text x="54.0" y="250.0" font-size="17" fill="#ffc857" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">=== Cour Avant ===</text>
+<text x="54.0" y="278.0" font-size="17" fill="#ef5350" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">[Nuit] Mme Tweedy commence sa ronde !</text>
+<text x="54.0" y="306.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; cacher</text>
+<text x="54.0" y="334.0" font-size="17" fill="#66bb6a" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Vous vous dissimulez (discrétion 20).</text>
+<text x="54.0" y="362.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; stats</text>
+<text x="54.0" y="390.0" font-size="17" fill="#ccc" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">PV 100 · Mana 50 · ATK 14 · DEF 8</text>
+<text x="54.0" y="418.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; </text>
+</g><g opacity="0.5"><rect x="1010" y="40" width="560" height="520" rx="14" fill="#0c0c0e" stroke="#333"/>
+<rect x="1010" y="40" width="560" height="36" rx="14" fill="#232329"/>
+<rect x="1010" y="62" width="560" height="14" fill="#232329"/>
+<circle cx="1032" cy="58" r="6" fill="#ef5350"/>
+<circle cx="1054" cy="58" r="6" fill="#ffc857"/>
+<circle cx="1076" cy="58" r="6" fill="#66bb6a"/>
+<text x="1290.0" y="63.0" font-size="14" fill="#999" text-anchor="middle" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">combat</text>
+<text x="1034.0" y="110.0" font-size="17" fill="#ef5350" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Combat ! Rat Mutant (PV 45)</text>
+<text x="1034.0" y="138.0" font-size="17" fill="#888" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">[a] attaquer [c] compétence</text>
+<text x="1034.0" y="166.0" font-size="17" fill="#888" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">[b] bloquer  [f] fuir</text>
+<text x="1034.0" y="194.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; c</text>
+<text x="1034.0" y="222.0" font-size="17" fill="#ffc857" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Assaut Furieux ! -15 PV</text>
+<text x="1034.0" y="250.0" font-size="17" fill="#4dd0e1" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Rat Mutant : ATK -12 (2 tours)</text>
+<text x="1034.0" y="278.0" font-size="17" fill="#ccc" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Mana +5 (régénération)</text>
+<text x="1034.0" y="306.0" font-size="17" fill="#f44c7f" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">&gt; a</text>
+<text x="1034.0" y="334.0" font-size="17" fill="#66bb6a" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">Le Rat Mutant est vaincu.</text>
+<text x="1034.0" y="362.0" font-size="17" fill="#ffc857" text-anchor="start" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">+40 OR · Éperon d'acier</text>
+</g><rect x="330" y="215" width="940" height="200" rx="26" fill="#121215" fill-opacity="0.82" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="800.0" y="295.0" font-size="64" fill="#fff" text-anchor="middle" font-weight="800">Chicken Run</text>
+<text x="800.0" y="340.0" font-size="22" fill="#bbb" text-anchor="middle" font-weight="400">Moteur de jeu de rôle textuel écrit en Rust</text>
+<rect x="469.6" y="370" width="60.8" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="500.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">Rust</text>
+<rect x="615.2" y="370" width="69.5" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="650.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">serde</text>
+<rect x="769.6" y="370" width="60.8" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="800.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">JSON</text>
+<rect x="893.5" y="370" width="113.0" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="950.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">cargo test</text>
+<rect x="1074.0" y="370" width="52.1" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="1100.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">RPG</text>
+
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<text x="800.0" y="62.0" font-size="34" fill="#fff" text-anchor="middle" font-weight="700">Pipeline de traitement</text>
+<text x="800.0" y="98.0" font-size="18" fill="#aaa" text-anchor="middle" font-weight="400">Package Python installable · CLI configurable · journalisation par module</text>
+<rect x="45.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#9e9e9e" stroke-width="2"/>
+<rect x="45.0" y="210" width="6" height="100" rx="3" fill="#9e9e9e"/>
+<text x="140.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Corpus</text>
+<text x="140.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">PDF → texte</text>
+<line x1="237.0" y1="260" x2="263.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="265.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#4dd0e1" stroke-width="2"/>
+<rect x="265.0" y="210" width="6" height="100" rx="3" fill="#4dd0e1"/>
+<text x="360.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Normalisation</text>
+<text x="360.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">Unicode · ponctuation</text>
+<line x1="457.0" y1="260" x2="483.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="485.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#f44c7f" stroke-width="2"/>
+<rect x="485.0" y="210" width="6" height="100" rx="3" fill="#f44c7f"/>
+<text x="580.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">spaCy NER</text>
+<text x="580.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">fr_core_news_sm</text>
+<line x1="677.0" y1="260" x2="703.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="705.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#ffc857" stroke-width="2"/>
+<rect x="705.0" y="210" width="6" height="100" rx="3" fill="#ffc857"/>
+<text x="800.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Alias</text>
+<text x="800.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">Hari = Seldon</text>
+<line x1="897.0" y1="260" x2="923.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="925.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#42a5f5" stroke-width="2"/>
+<rect x="925.0" y="210" width="6" height="100" rx="3" fill="#42a5f5"/>
+<text x="1020.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Co-occurrences</text>
+<text x="1020.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">fenêtre glissante</text>
+<line x1="1117.0" y1="260" x2="1143.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="1145.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#ef5350" stroke-width="2"/>
+<rect x="1145.0" y="210" width="6" height="100" rx="3" fill="#ef5350"/>
+<text x="1240.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Polarité</text>
+<text x="1240.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">verbes + prior JSON</text>
+<line x1="1337.0" y1="260" x2="1363.0" y2="260" stroke="#f44c7f" stroke-width="2" marker-end="url(#arrp)"/>
+<rect x="1365.0" y="210" width="190" height="100" rx="14" fill="#232329" stroke="#66bb6a" stroke-width="2"/>
+<rect x="1365.0" y="210" width="6" height="100" rx="3" fill="#66bb6a"/>
+<text x="1460.0" y="256.0" font-size="21" fill="#fff" text-anchor="middle" font-weight="600">Graphe</text>
+<text x="1460.0" y="280.0" font-size="14" fill="#aaa" text-anchor="middle" font-weight="400">NetworkX</text>
+<text x="1130.0" y="420.0" font-size="18" fill="#aaa" text-anchor="end" font-weight="400">Sorties :</text>
+<rect x="1160.5" y="402" width="99.1" height="32.4" rx="16.2" fill="#2a2a30" stroke="#4dd0e1" stroke-opacity="0.7"/>
+<text x="1210.0" y="425.4" font-size="18" fill="#4dd0e1" text-anchor="middle" font-weight="400">GraphML</text>
+<rect x="1311.3" y="402" width="57.3" height="32.4" rx="16.2" fill="#2a2a30" stroke="#4dd0e1" stroke-opacity="0.7"/>
+<text x="1340.0" y="425.4" font-size="18" fill="#4dd0e1" text-anchor="middle" font-weight="400">PNG</text>
+<rect x="1394.8" y="402" width="130.4" height="32.4" rx="16.2" fill="#2a2a30" stroke="#4dd0e1" stroke-opacity="0.7"/>
+<text x="1460.0" y="425.4" font-size="18" fill="#4dd0e1" text-anchor="middle" font-weight="400">CSV Kaggle</text>
+<line x1="1460.0" y1="312" x2="1460.0" y2="396" stroke="#bbb" stroke-width="2" marker-end="url(#arr)"/>
+<text x="800.0" y="540.0" font-size="18" fill="#ccc" text-anchor="middle" font-weight="400" font-family="'SFMono-Regular', Menlo, Consolas, monospace">$ networker -gilm --dir corpus/  →  graphes + structures intermédiaires pour chaque chapitre</text>
+
+</svg>

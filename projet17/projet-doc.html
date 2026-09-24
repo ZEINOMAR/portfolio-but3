@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet 17 (Moteur de jeu RPG en Rust)</title>
+  <meta name="description" content="Moteur de jeu de rôle textuel écrit de zéro en Rust, piloté par des fichiers JSON, avec un jeu complet construit dessus : Chicken Run." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-doc">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="projet17.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+    <p class="doc-subtitle">Moteur de jeu RPG en Rust — Moteur de RPG textuel data-driven et jeu Chicken Run</p>
+
+    <div class="doc-section doc-toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#s1">Objectif du projet</a></li>
+        <li><a href="#s2">Technologies utilisées</a></li>
+        <li><a href="#s3">Architecture du moteur</a></li>
+        <li><a href="#s4">Données du jeu (JSON)</a></li>
+        <li><a href="#s5">Mécaniques de jeu</a></li>
+        <li><a href="#s6">Exemple de commandes utilisées</a></li>
+        <li><a href="#s7">Problématiques rencontrées &amp; solutions</a></li>
+        <li><a href="#s8">Références techniques utilisées</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-section" id="s1">
+      <h2>Objectif du projet</h2>
+      <p>Concevoir un moteur de jeu de rôle textuel réutilisable en Rust, dont tout le contenu (carte, personnages, objets, boutique, ennemis) est externalisé en JSON, puis démontrer le moteur avec un jeu complet : <strong>Chicken Run</strong>.</p>
+    </div>
+    <div class="doc-section" id="s2">
+      <h2>Technologies utilisées</h2>
+      <ul>
+        <li>Rust (édition 2024), Cargo</li>
+        <li><code>serde</code> / <code>serde_json</code> pour la (dé)sérialisation des données</li>
+        <li><code>rand</code> pour les éléments aléatoires</li>
+        <li><code>cargo test</code> (tests dans <code>tests/</code>) et <code>cargo doc</code></li>
+        <li>Git pour le travail en équipe</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s3">
+      <h2>Architecture du moteur</h2>
+      <img src="assets/architecture.svg" class="doc-figure" alt="Architecture du moteur">
+      <p>Rust ne propose pas d'héritage : chaque struct intègre sa struct parente comme champ direct (composition ascendante), ce qui rend toutes les données accessibles sans enum intermédiaire. Les comportements communs sont exprimés par des traits.</p>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Module</th><th>Rôle</th></tr></thead>
+          <tbody>
+          <tr><td><code>Effets</code></td><td>buffs / debuffs de statistiques avec durée en tours</td></tr>
+          <tr><td><code>Competence</code> / <code>Lancable</code></td><td>actions consommant du mana, via un trait commun</td></tr>
+          <tr><td><code>Equipement</code></td><td>bonus passifs d'attaque / défense</td></tr>
+          <tr><td><code>Salle</code> / <code>Monde</code></td><td>graphe de la carte (<code>HashMap&lt;u32, Salle&gt;</code>) chargé depuis JSON</td></tr>
+          <tr><td><code>CycleJour</code></td><td>horloge à ticks alternant jour et nuit</td></tr>
+          <tr><td><code>Combat</code></td><td>résolution au tour par tour (initiative, blocage, régénération de mana)</td></tr>
+          <tr><td><code>Stalker</code></td><td>ennemi qui patrouille selon un circuit la nuit</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Extrait réel du trait implémenté par les compétences :</p>
+      <pre><code>/// Interface standardisant le comportement de choses lancables
+pub trait Lancable {
+    /// Vérifie si le mana disponible est suffisant pour lancer l&#x27;action.
+    fn est_lancable(&amp;self, mana: u32) -&gt; bool;
+    /// Exécute l&#x27;effet sur le lanceur et la cible.
+    fn lancer(&amp;self, lanceur: &amp;mut CommunicantData, cible: &amp;mut CommunicantData);
+}</code></pre>
+    </div>
+    <div class="doc-section" id="s4">
+      <h2>Données du jeu (JSON)</h2>
+      <p>Le monde est décrit dans <code>monde.json</code> ; chaque salle déclare ses sorties, ses descriptions de jour et de nuit et ses événements (marchand, cachette, combat, clé, salle verrouillée…).</p>
+      <pre><code>{
+  &quot;id&quot;: 1,
+  &quot;nom&quot;: &quot;Poulailler Principal&quot;,
+  &quot;sorties&quot;: { &quot;nord&quot;: 2 },
+  &quot;evenements&quot;: [
+    &quot;Marchand&quot;,
+    { &quot;Analyse&quot;: { &quot;information&quot;: &quot;...&quot; } }
+  ]
+}</code></pre>
+      <img src="assets/carte.svg" class="doc-figure" alt="Carte du monde">
+    </div>
+    <div class="doc-section" id="s5">
+      <h2>Mécaniques de jeu</h2>
+      <ul>
+        <li><strong>Cycle jour / nuit</strong> : un déplacement coûte 2 ticks, une interaction 1 tick ; une phase dure 20 ticks. La nuit, le Stalker patrouille.</li>
+        <li><strong>Discrétion</strong> : se cacher la nuit ; la cachette protège si son niveau de discrétion dépasse la perception du Stalker.</li>
+        <li><strong>Combat</strong> : l'entité la plus rapide frappe en premier ; sans blocage, seule la moitié de la défense s'applique ; +5 mana par tour.</li>
+        <li><strong>Économie</strong> : or à ramasser, boutique (potions, équipements, outils d'évasion).</li>
+        <li><strong>Progression</strong> : clés à trouver pour déverrouiller le silo, la maison, l'usine puis la clôture finale.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s6">
+      <h2>Exemple de commandes utilisées</h2>
+      <pre><code>cargo run                    # lancer le jeu
+cargo test                   # exécuter les 61 tests
+cargo doc --no-deps --open   # générer la documentation</code></pre>
+    </div>
+    <div class="doc-section" id="s7">
+      <h2>Problématiques rencontrées &amp; solutions</h2>
+      <ul>
+        <li>Absence d'héritage en Rust &rarr; <strong>composition ascendante</strong> des structs et traits pour les comportements partagés.</li>
+        <li>Contenu du jeu figé dans le code &rarr; <strong>externalisation complète en JSON</strong> avec serde ; un scénariste peut modifier le monde sans recompiler.</li>
+        <li>Robustesse au chargement &rarr; <strong>valeurs par défaut</strong> utilisées si un fichier JSON est absent ou invalide.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s8">
+      <h2>Références techniques utilisées</h2>
+      <ul>
+        <li><a href="https://doc.rust-lang.org/book/" target="_blank" rel="noopener">The Rust Programming Language</a></li>
+        <li><a href="https://serde.rs/" target="_blank" rel="noopener">serde</a></li>
+        <li><a href="https://doc.rust-lang.org/cargo/" target="_blank" rel="noopener">Cargo Book</a></li>
+        <li><a href="https://doc.rust-lang.org/rust-by-example/testing.html" target="_blank" rel="noopener">Rust by Example — Tests</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

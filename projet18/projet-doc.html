@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet 18 (Yalta Chess)</title>
+  <meta name="description" content="Implémentation complète du Yalta, variante des échecs à 3 joueurs sur plateau hexagonal de 96 cases, en Java 21 et JavaFX, avec une IA alpha-bêta multithreadée." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-doc">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="projet18.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+    <p class="doc-subtitle">Yalta Chess — Moteur de règles, IA alpha-bêta et interface JavaFX</p>
+
+    <div class="doc-section doc-toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#s1">Objectif du projet</a></li>
+        <li><a href="#s2">Technologies utilisées</a></li>
+        <li><a href="#s3">Le plateau hexagonal</a></li>
+        <li><a href="#s4">Architecture &amp; patrons de conception</a></li>
+        <li><a href="#s5">Intelligence artificielle</a></li>
+        <li><a href="#s6">Exemple de commandes utilisées</a></li>
+        <li><a href="#s7">Problématiques rencontrées &amp; solutions</a></li>
+        <li><a href="#s8">Références techniques utilisées</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-section" id="s1">
+      <h2>Objectif du projet</h2>
+      <p>Implémenter de zéro le Yalta, variante des échecs à trois joueurs sur un plateau hexagonal de 96 cases, avec un moteur de règles rigoureux, une IA jouable et une interface graphique soignée, en respectant une architecture orientée objet propre.</p>
+    </div>
+    <div class="doc-section" id="s2">
+      <h2>Technologies utilisées</h2>
+      <ul>
+        <li>Java 21, Maven</li>
+        <li>JavaFX (controls, graphics) et <code>javafx-maven-plugin</code></li>
+        <li>JUnit 5 — 121 tests répartis sur 8 classes (plateau, topologie, génération de coups, détection d'échec, commandes, évaluation…)</li>
+        <li>Programmation concurrente : <code>ExecutorService</code>, <code>Future</code>, thread daemon</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s3">
+      <h2>Le plateau hexagonal</h2>
+      <img src="assets/plateau.svg" class="doc-figure" alt="Plateau hexagonal">
+      <p>Le plateau est un hexagone découpé en six quadrilatères de 4 × 4 cases ; chaque joueur possède deux quadrilatères adjacents. Au centre, les lignes et diagonales changent de secteur : la classe <code>BoardTopology</code> encode ces voisinages et <code>BoardGeometry</code> calcule les polygones affichés. Un système de coordonnées continu (1 à 12) permet de repérer chaque case.</p>
+    </div>
+    <div class="doc-section" id="s4">
+      <h2>Architecture &amp; patrons de conception</h2>
+      <img src="assets/architecture.svg" class="doc-figure" alt="Architecture MVC">
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Pattern</th><th>Classes</th><th>Usage</th></tr></thead>
+          <tbody>
+          <tr><td>MVC</td><td><code>model</code> · <code>engine</code> · <code>view</code></td><td>séparation stricte logique / affichage</td></tr>
+          <tr><td>Strategy</td><td><code>EvaluationStrategy</code>, <code>MaterialEvaluator</code>, <code>PositionalEvaluator</code></td><td>niveau de difficulté de l'IA interchangeable</td></tr>
+          <tr><td>Command</td><td><code>MoveCommand</code>, <code>MoveHistory</code></td><td>historique et annulation (Undo)</td></tr>
+          <tr><td>Observer</td><td><code>GameObserver</code>, <code>GameEvent</code></td><td>rafraîchissement de la vue à chaque changement d'état</td></tr>
+          <tr><td>Factory</td><td><code>PieceFactory</code></td><td>création des pièces</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="doc-section" id="s5">
+      <h2>Intelligence artificielle</h2>
+      <p>L'IA utilise une recherche <strong>alpha-bêta paranoïaque</strong> : à trois joueurs, elle suppose que les deux adversaires cherchent à minimiser son score. Les coups racine sont ordonnés puis évalués <strong>en parallèle</strong> sur un pool de threads, avec une profondeur de 3 et une limite de 3 secondes. Le calcul tourne dans un thread daemon et le résultat est renvoyé à l'interface via <code>Platform.runLater</code>, ce qui garde l'UI fluide.</p>
+      <pre><code>int nThreads = Math.min(rootMoves.size(), Runtime.getRuntime().availableProcessors());
+ExecutorService executor = Executors.newFixedThreadPool(nThreads);
+
+for (Move move : rootMoves) {
+    futures.add(executor.submit(() -&gt; {
+        Board copy = board.copy();
+        copy.move(move);
+        return alphaBeta(copy, MAX_DEPTH - 1, Integer.MIN_VALUE, Integer.MAX_VALUE,
+                aiPlayer, aiPlayer.next());
+    }));
+}</code></pre>
+      <p>L'évaluation est injectée via le pattern Strategy :</p>
+      <pre><code>public interface EvaluationStrategy {
+    /** Évalue le plateau du point de vue de forPlayer. */
+    int evaluate(Board board, PlayerColor forPlayer);
+}</code></pre>
+    </div>
+    <div class="doc-section" id="s6">
+      <h2>Exemple de commandes utilisées</h2>
+      <pre><code>mvn clean javafx:run   # lancer le jeu
+mvn test               # exécuter les tests JUnit 5</code></pre>
+    </div>
+    <div class="doc-section" id="s7">
+      <h2>Problématiques rencontrées &amp; solutions</h2>
+      <ul>
+        <li>Géométrie non standard (directions qui changent au centre) &rarr; <strong>table de topologie</strong> dédiée plutôt que des calculs de coordonnées cartésiennes.</li>
+        <li>Minimax classique pensé pour 2 joueurs &rarr; variante <strong>paranoïaque</strong> de l'alpha-bêta adaptée à 3 joueurs.</li>
+        <li>Interface figée pendant le calcul de l'IA &rarr; <strong>thread daemon</strong> + <code>Platform.runLater</code>, et recherche parallélisée avec limite de temps.</li>
+        <li>Historique et annulation des coups &rarr; <strong>pattern Command</strong> : chaque coup est encapsulé dans un objet exécutable et annulable.</li>
+        <li>Fin de partie à 3 joueurs &rarr; gestion de l'<strong>élimination</strong> : les pièces du joueur maté sont retirées et la partie continue.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s8">
+      <h2>Références techniques utilisées</h2>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Three-player_chess" target="_blank" rel="noopener">Three-player chess (dont Yalta) — Wikipedia</a></li>
+        <li><a href="https://openjfx.io/" target="_blank" rel="noopener">OpenJFX — Documentation JavaFX</a></li>
+        <li><a href="https://junit.org/junit5/docs/current/user-guide/" target="_blank" rel="noopener">JUnit 5 User Guide</a></li>
+        <li><a href="https://fr.wikipedia.org/wiki/%C3%89lagage_alpha-b%C3%AAta" target="_blank" rel="noopener">Élagage alpha-bêta</a></li>
+        <li><a href="https://refactoring.guru/fr/design-patterns" target="_blank" rel="noopener">Refactoring Guru — Design Patterns</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet 15 – CERISoNet</title>
+  <meta name="description" content="Réseau social du CERI : SPA Angular connectée à une API Node.js/Express en HTTPS, double persistance PostgreSQL + MongoDB et interactions en temps réel via WebSocket." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-project">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html" class="active">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="../page-projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Tous les projets</a>
+
+    <section class="hero-section" id="hero">
+      <h1>Projet 15 : CERISoNet</h1>
+      <p>Réseau social du CERI : SPA Angular connectée à une API Node.js/Express en HTTPS, double persistance PostgreSQL + MongoDB et interactions en temps réel via WebSocket.</p>
+      <div class="context"><span><i class="fas fa-graduation-cap text-f44c7f me-1"></i>Master ILSEN – Avignon Université</span><span><i class="fas fa-calendar text-f44c7f me-1"></i>M1 · 2025–2026</span></div>
+
+      <div class="tags">
+        <span class="tag">Angular</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Socket.io</span>
+        <span class="tag">HTTPS</span>
+      </div>
+    </section>
+
+    <div id="projectCarousel" class="carousel slide carousel-fade my-5" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/cover.svg" class="d-block w-100 rounded" alt="CERISoNet — réseau social temps réel">
+          <div class="carousel-caption">CERISoNet — réseau social temps réel</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/architecture.svg" class="d-block w-100 rounded" alt="Architecture : SPA Angular, serveur Express, PostgreSQL et MongoDB">
+          <div class="carousel-caption">Architecture : SPA Angular, serveur Express, PostgreSQL et MongoDB</div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/temps-reel.svg" class="d-block w-100 rounded" alt="Diffusion des événements en temps réel avec Socket.io">
+          <div class="carousel-caption">Diffusion des événements en temps réel avec Socket.io</div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    </div>
+
+    <section class="key-figures">
+      <div class="figure-card"><strong>4 étapes</strong><span>développement incrémental</span></div>
+      <div class="figure-card"><strong>2 SGBD</strong><span>PostgreSQL + MongoDB</span></div>
+      <div class="figure-card"><strong>HTTPS</strong><span>serveur sécurisé (SSL)</span></div>
+      <div class="figure-card"><strong>Temps réel</strong><span>likes, partages, connexions</span></div>
+    </section>
+
+    <section class="project-description mb-5">
+      <h3><i class="fas fa-lightbulb text-f44c7f me-2"></i>À propos du projet</h3>
+      <p>CERISoNet est un <strong>réseau social complet</strong> développé pour les étudiants du CERI. Il est construit comme une <strong>Single Page Application Angular</strong> qui dialogue avec une API REST Node.js/Express servie en HTTPS.</p>
+      <p>L'application repose sur une <strong>double persistance</strong> : les comptes utilisateurs et l'authentification sont gérés dans PostgreSQL, tandis que le contenu social (publications, likes, commentaires, partages) et les sessions sont stockés dans MongoDB. Les interactions sont propagées instantanément à tous les internautes connectés grâce à <strong>Socket.io</strong>.</p>
+      <p>Le projet a été mené en quatre étapes incrémentales : serveur HTTPS, connexion et mur d'accueil, gestion des publications, puis fonctionnalités avancées (tri, filtres, partage, temps réel, responsive).</p>
+    </section>
+
+    <section class="project-features">
+      <h3><i class="fas fa-user-gear text-f44c7f me-2"></i>Fonctionnalités développées</h3>
+      <ul>
+        <li>Connexion / déconnexion avec vérification du mot de passe hashé et sessions persistées dans MongoDB</li>
+        <li>Mur d'accueil avec <strong>scroll infini</strong> (pagination offset / limit)</li>
+        <li>Publication de posts : texte, upload d'image (multer) ou URL externe, <strong>détection automatique des hashtags</strong></li>
+        <li>Likes (opérations atomiques <code>$addToSet</code> / <code>$pull</code>) et commentaires avec résolution des pseudos</li>
+        <li>Tri par date, popularité ou auteur et filtres (mes posts, tous, par hashtag)</li>
+        <li>Partage de publications avec affichage du post original</li>
+        <li>Notifications temps réel : connexions / déconnexions, likes, partages et liste des internautes connectés</li>
+        <li>Interface responsive (media queries) pour mobile</li>
+      </ul>
+    </section>
+
+    <section class="project-features">
+      <h3>Compétences développées :</h3>
+      <ul>
+        <li>Développement d'une SPA Angular (composants, services, routage)</li>
+        <li>Conception d'une API REST Node.js / Express sécurisée en HTTPS</li>
+        <li>Modélisation hybride relationnel (PostgreSQL) / document (MongoDB)</li>
+        <li>Gestion des sessions côté serveur et de l'authentification</li>
+        <li>Communication bidirectionnelle temps réel avec WebSocket (Socket.io)</li>
+        <li>Gestion de l'upload de fichiers et des contenus multimédias</li>
+      </ul>
+      <a href="projet-doc.html" class="btn btn-demo">Voir la documentation</a>
+    </section>
+
+    <nav class="project-nav" aria-label="Autres projets">
+      <a href="../projet14/projet14.html"><small>&larr; Projet précédent</small><span>cryptoMania</span></a>
+      <a class="next" href="../projet16/projet16.html"><small>Projet suivant &rarr;</small><span>Networker – NLP &amp; NER Asimov</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script>
+    function revealSections() {
+      const hero = document.getElementById('hero');
+      const scrollY = window.scrollY + window.innerHeight * 0.8;
+      if (scrollY >= hero.offsetTop) {
+        hero.classList.add('visible');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealSections);
+    window.addEventListener('scroll', revealSections);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

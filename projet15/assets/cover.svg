@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b1b1f"/><stop offset="1" stop-color="#101012"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+  </pattern>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#f44c7f" stop-opacity="0.22"/><stop offset="1" stop-color="#f44c7f" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#bbb"/>
+  </marker>
+  <marker id="arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#f44c7f"/>
+  </marker>
+</defs>
+<rect width="1600" height="600" fill="url(#bg)"/>
+<rect width="1600" height="600" fill="url(#grid)"/>
+<rect width="1600" height="600" fill="url(#glow)"/>
+<rect x="30" y="40" width="330" height="150" rx="14" fill="#1f1f24" stroke="#333" stroke-width="1"/>
+<circle cx="64" cy="74" r="16" fill="#444"/>
+<text x="64.0" y="80.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">L</text>
+<text x="92.0" y="70.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Lina</text>
+<text x="92.0" y="90.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="52.0" y="124.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Soutenance du projet demain !</text>
+<text x="52.0" y="146.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#ceri #master</text>
+<text x="52.0" y="176.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 12</text>
+<text x="120.0" y="176.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="180.0" y="176.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="30" y="220" width="330" height="150" rx="14" fill="#1f1f24" stroke="#333" stroke-width="1"/>
+<circle cx="64" cy="254" r="16" fill="#444"/>
+<text x="64.0" y="260.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">Y</text>
+<text x="92.0" y="250.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Yanis</text>
+<text x="92.0" y="270.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="52.0" y="304.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Nouveau TP Angular publié</text>
+<text x="52.0" y="326.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#angular</text>
+<text x="52.0" y="356.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 7</text>
+<text x="120.0" y="356.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="180.0" y="356.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="30" y="400" width="330" height="150" rx="14" fill="#1f1f24" stroke="#333" stroke-width="1"/>
+<circle cx="64" cy="434" r="16" fill="#444"/>
+<text x="64.0" y="440.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">S</text>
+<text x="92.0" y="430.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Sarah</text>
+<text x="92.0" y="450.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="52.0" y="484.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Qui vient au BDE ce soir ?</text>
+<text x="52.0" y="506.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#avignon</text>
+<text x="52.0" y="536.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 21</text>
+<text x="120.0" y="536.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="180.0" y="536.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="1240" y="40" width="330" height="150" rx="14" fill="#1f1f24" stroke="#f44c7f" stroke-width="2"/>
+<circle cx="1274" cy="74" r="16" fill="#f44c7f"/>
+<text x="1274.0" y="80.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">O</text>
+<text x="1302.0" y="70.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Omar</text>
+<text x="1302.0" y="90.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="1262.0" y="124.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Les WebSockets c'est magique</text>
+<text x="1262.0" y="146.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#socketio</text>
+<text x="1262.0" y="176.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 34</text>
+<text x="1330.0" y="176.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="1390.0" y="176.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="1240" y="220" width="330" height="150" rx="14" fill="#1f1f24" stroke="#333" stroke-width="1"/>
+<circle cx="1274" cy="254" r="16" fill="#444"/>
+<text x="1274.0" y="260.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">N</text>
+<text x="1302.0" y="250.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Nora</text>
+<text x="1302.0" y="270.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="1262.0" y="304.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Photo du campus Hannah Arendt</text>
+<text x="1262.0" y="326.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#campus</text>
+<text x="1262.0" y="356.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 18</text>
+<text x="1330.0" y="356.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="1390.0" y="356.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="1240" y="400" width="330" height="150" rx="14" fill="#1f1f24" stroke="#333" stroke-width="1"/>
+<circle cx="1274" cy="434" r="16" fill="#444"/>
+<text x="1274.0" y="440.0" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">A</text>
+<text x="1302.0" y="430.0" font-size="16" fill="#fff" text-anchor="start" font-weight="600">Adam</text>
+<text x="1302.0" y="450.0" font-size="12" fill="#888" text-anchor="start" font-weight="400">il y a 2 min</text>
+<text x="1262.0" y="484.0" font-size="15" fill="#ddd" text-anchor="start" font-weight="400">Scroll infini opérationnel</text>
+<text x="1262.0" y="506.0" font-size="14" fill="#4dd0e1" text-anchor="start" font-weight="400">#nodejs</text>
+<text x="1262.0" y="536.0" font-size="15" fill="#f44c7f" text-anchor="start" font-weight="400">♥ 9</text>
+<text x="1330.0" y="536.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">💬 3</text>
+<text x="1390.0" y="536.0" font-size="14" fill="#aaa" text-anchor="start" font-weight="400">↻ partager</text>
+<rect x="330" y="215" width="940" height="200" rx="26" fill="#121215" fill-opacity="0.82" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="800.0" y="295.0" font-size="64" fill="#fff" text-anchor="middle" font-weight="800">CERISoNet</text>
+<text x="800.0" y="340.0" font-size="22" fill="#bbb" text-anchor="middle" font-weight="400">Réseau social temps réel du CERI — SPA Angular + API Node.js</text>
+<rect x="456.6" y="370" width="86.9" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="500.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">Angular</text>
+<rect x="606.5" y="370" width="86.9" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="650.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">Express</text>
+<rect x="756.5" y="370" width="86.9" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="800.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">MongoDB</text>
+<rect x="893.5" y="370" width="113.0" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="950.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">PostgreSQL</text>
+<rect x="1047.8" y="370" width="104.3" height="27.0" rx="13.5" fill="#2a2a30" stroke="#f44c7f" stroke-opacity="0.7"/>
+<text x="1100.0" y="389.5" font-size="15" fill="#f44c7f" text-anchor="middle" font-weight="400">Socket.io</text>
+
+</svg>

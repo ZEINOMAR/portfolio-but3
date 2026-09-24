@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation – Projet 14 (cryptoMania)</title>
+  <meta name="description" content="Plateforme de simulation de trading de cryptomonnaies : SPA React, API FastAPI, traitement asynchrone Celery/RabbitMQ, observabilité Prometheus/Grafana et déploiement Kubernetes." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body class="page-doc">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="../index.html#experience" class="hide-sm">Parcours</a>
+        <a href="../page-projets.html">Projets</a>
+        <a href="../assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="content">
+    <a href="projet14.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au projet</a>
+
+    <h1><i class="fas fa-book text-f44c7f"></i> Documentation Technique</h1>
+    <p class="doc-subtitle">cryptoMania — API FastAPI, traitement asynchrone, observabilité et Kubernetes</p>
+
+    <div class="doc-section doc-toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#s1">Objectif du projet</a></li>
+        <li><a href="#s2">Technologies utilisées</a></li>
+        <li><a href="#s3">Architecture</a></li>
+        <li><a href="#s4">Modèle de données</a></li>
+        <li><a href="#s5">Chaîne qualité &amp; DevOps</a></li>
+        <li><a href="#s6">Exemple de commandes utilisées</a></li>
+        <li><a href="#s7">Problématiques rencontrées &amp; solutions</a></li>
+        <li><a href="#s8">Références techniques utilisées</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-section" id="s1">
+      <h2>Objectif du projet</h2>
+      <p>Concevoir une plateforme de simulation de trading de cryptomonnaies robuste et observable : les utilisateurs gèrent un wallet virtuel, passent des ordres fictifs et suivent la performance de leur portefeuille, tandis que les cours sont mis à jour en continu en arrière-plan.</p>
+      <p>L'enjeu technique principal est de construire une architecture <strong>découplée, scalable et supervisée</strong>, conforme aux pratiques DevOps.</p>
+    </div>
+    <div class="doc-section" id="s2">
+      <h2>Technologies utilisées</h2>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Domaine</th><th>Technologies</th></tr></thead>
+          <tbody>
+          <tr><td>Frontend</td><td>React (SPA), Vitest</td></tr>
+          <tr><td>Backend</td><td>Python 3.12, FastAPI (ASGI, async/await), SQLAlchemy, JWT, OpenAPI / Swagger</td></tr>
+          <tr><td>Données</td><td>PostgreSQL</td></tr>
+          <tr><td>Asynchrone</td><td>Celery, Celery Beat, RabbitMQ, API CoinGecko</td></tr>
+          <tr><td>Conteneurs & orchestration</td><td>Docker, Docker Compose, Kubernetes (minikube / Docker Desktop)</td></tr>
+          <tr><td>Observabilité</td><td>Prometheus (endpoint <code>/metrics</code>), Grafana, alerting, webhook Discord</td></tr>
+          <tr><td>Qualité & sécurité</td><td>pytest, SonarQube, OWASP ZAP, k6, Makefile</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="doc-section" id="s3">
+      <h2>Architecture</h2>
+      <img src="assets/architecture.svg" class="doc-figure" alt="Architecture de cryptoMania">
+      <ul>
+        <li><strong>Frontend React</strong> : interface utilisateur (graphiques, portefeuille, wallet).</li>
+        <li><strong>Backend FastAPI</strong> : API REST, logique métier, authentification JWT et contrôle d'accès par rôles.</li>
+        <li><strong>PostgreSQL</strong> : stockage des données applicatives et financières (transactions ACID).</li>
+        <li><strong>RabbitMQ + Celery</strong> : ingestion asynchrone des données marché, planifiée par Celery Beat.</li>
+        <li><strong>Prometheus & Grafana</strong> : collecte des métriques et tableaux de bord temps réel.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s4">
+      <h2>Modèle de données</h2>
+      <p>Le modèle garantit la cohérence des données financières et historise les prix pour la visualisation :</p>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Entité</th><th>Rôle</th><th>Relations</th></tr></thead>
+          <tbody>
+          <tr><td><code>User</code></td><td>compte (email, mot de passe hashé, date de naissance)</td><td>1 Wallet · n Holdings</td></tr>
+          <tr><td><code>Wallet</code></td><td>solde et devise du portefeuille virtuel</td><td>appartient à 1 User</td></tr>
+          <tr><td><code>Asset</code></td><td>cryptomonnaie (symbole, nom)</td><td>n MetricSnapshots</td></tr>
+          <tr><td><code>Holding</code></td><td>quantité détenue d'un actif</td><td>1 User · 1 Asset</td></tr>
+          <tr><td><code>MetricSnapshot</code></td><td>cours historisé (timestamp, prix USD)</td><td>1 Asset</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="doc-section" id="s5">
+      <h2>Chaîne qualité &amp; DevOps</h2>
+      <img src="assets/devops.svg" class="doc-figure" alt="Chaîne qualité et DevOps">
+      <ul>
+        <li><strong>Tests</strong> : couverture backend avec pytest (<code>coverage.xml</code>) et frontend avec Vitest (<code>lcov.info</code>).</li>
+        <li><strong>Analyse statique</strong> : SonarQube (code smells, duplications, vulnérabilités) — <strong>Quality Gate : PASSED</strong>.</li>
+        <li><strong>Sécurité</strong> : scan OWASP ZAP baseline du backend, rapport HTML généré automatiquement.</li>
+        <li><strong>Performance</strong> : tests de charge et de stress k6 (latence moyenne, p90/p95, requêtes/s, taux d'erreur).</li>
+        <li><strong>Supervision</strong> : requêtes PromQL (taux de requêtes, CPU, latence p95) et alertes Grafana (ex. p95 &gt; 500 ms).</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s6">
+      <h2>Exemple de commandes utilisées</h2>
+      <pre><code># Lancement local de toute la stack
+docker-compose build
+docker-compose up -d
+
+# Déploiement Kubernetes
+minikube start
+kubectl apply -f k8s/
+kubectl get pods
+
+# Tests, couverture et qualité
+pytest --cov=app --cov-report=xml
+sonar-scanner
+make security      # scan OWASP ZAP
+make load          # test de charge k6
+make stress        # test de montée en charge k6</code></pre>
+      <p>Exemple de requête PromQL utilisée dans Grafana (latence p95) :</p>
+      <pre><code>histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le))</code></pre>
+    </div>
+    <div class="doc-section" id="s7">
+      <h2>Problématiques rencontrées &amp; solutions</h2>
+      <ul>
+        <li>Appels à l'API de marché externe lents &rarr; <strong>ingestion déportée dans des workers Celery</strong> planifiés par Celery Beat, l'API reste réactive.</li>
+        <li>Intégrité des soldes et des positions &rarr; <strong>PostgreSQL (ACID)</strong> et accès via l'ORM SQLAlchemy.</li>
+        <li>Visibilité sur la santé des services &rarr; <strong>exposition de métriques Prometheus</strong> et dashboards / alertes Grafana.</li>
+        <li>Garantir la qualité avant déploiement &rarr; <strong>Quality Gate SonarQube</strong> et tests automatisés de sécurité et de charge.</li>
+        <li>Environnements hétérogènes &rarr; <strong>conteneurisation Docker</strong> et manifests Kubernetes identiques en local et en cluster.</li>
+      </ul>
+    </div>
+    <div class="doc-section" id="s8">
+      <h2>Références techniques utilisées</h2>
+      <ul>
+        <li><a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener">Documentation FastAPI</a></li>
+        <li><a href="https://react.dev/" target="_blank" rel="noopener">Documentation React</a></li>
+        <li><a href="https://docs.celeryq.dev/" target="_blank" rel="noopener">Celery</a></li>
+        <li><a href="https://kubernetes.io/fr/docs/home/" target="_blank" rel="noopener">Kubernetes</a></li>
+        <li><a href="https://prometheus.io/docs/" target="_blank" rel="noopener">Prometheus</a></li>
+        <li><a href="https://docs.sonarsource.com/sonarqube/" target="_blank" rel="noopener">SonarQube</a></li>
+        <li><a href="https://www.zaproxy.org/docs/" target="_blank" rel="noopener">OWASP ZAP</a></li>
+        <li><a href="https://grafana.com/docs/k6/latest/" target="_blank" rel="noopener">k6</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="../index.html">Accueil</a> · <a href="../page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio.js"></script>
+</body>
+</html>

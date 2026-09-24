@@ -1,133 +1,235 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mes Projets</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #1e1e1e;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding-top: 60px;
-    }
-    h1 {
-      text-align: center;
-      color: #f44c7f;
-      margin-bottom: 40px;
-    }
-    .project-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .project-card {
-      background: #2c2c2c;
-      border-radius: 10px;
-      padding: 20px;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .project-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    .project-card a {
-      text-decoration: none;
-      color: #fff;
-      display: block;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    .project-card:hover {
-      background: #f44c7f;
-      transform: scale(1.05);
-    }
-    .project-card:hover a {
-      color: #fff;
-    }
-    .btn-back {
-      display: block;
-      margin: 40px auto 0;
-      background-color: #f44c7f;
-      color: #fff;
-      padding: 10px 30px;
-      border: none;
-      border-radius: 30px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .btn-back:hover {
-      background-color: #d9366a;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets | Omar Zein</title>
+  <meta name="description" content="Les 18 projets d'Omar Zein : Master ILSEN, stages chez Rio Tinto et POMA, BUT Informatique. Web, API, DevOps, Java, Rust, NLP." />
+  <meta name="theme-color" content="#0e0e11" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Mes Projets</h1>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="projet1/assets/debian-logo.jpg" alt="Projet Debian">
-        <a href="projet1/projet1.html">Projet 1 – Installation de Debian</a>
-      </div>
-      <div class="project-card">
-        <img src="projet2/assets/Java-Logo.png" alt="Projet Java">
-        <a href="projet2/projet2.html">Projet 2 – Implémentation des besoins client</a>
-      </div>
-      <div class="project-card">
-        <img src="projet3/assets/Titanic Being Fitted Out 4.jpg" alt="Base de données">
-        <a href="projet3/projet3.html">Projet 3 – réation base de données Titanic</a>
-      </div>
-      <div class="project-card">
-        <img src="projet4/assets/desktop-wallpaper-learn-html-css-by-building-3-projects-launch-your-career-html-css.jpg" alt="Recueil de besoin">
-        <a href="projet4/projet4.html">Projet 4 – Recueil de besoin</a>
-      </div>
-      <div class="project-card">
-        <img src="projet5/assets/debian-logo.jpg" alt="Serveur Debian">
-        <a href="projet5/projet5.html">Projet 5 – Guide installation serveur Debian 11</a>
-      </div>
-      <div class="project-card">
-        <img src="projet6/assets/image.png" alt="Analyse base de données">
-        <a href="projet6/projet6.html">Projet 6 – Exploitation d'une base de données</a>
-      </div>
-      <div class="project-card">
-        <img src="projet7/assets/image.png" alt="Lan Maker">
-        <a href="projet7/projet7.html">Projet 7 – Application Lan Maker</a>
-      </div>
-      <div class="project-card">
-        <img src="projet8/assets/image.png" alt="GameJam IUT2">
-        <a href="projet8/projet8.html">Projet 8 – GameJam IUT2</a>
-      </div>
-      <div class="project-card">
-        <img src="projet9/assets/Screenshot 2025-06-17 at 17.09.00.png" alt="LabScape">
-        <a href="projet9/projet9.html">Projet 9 – LabScape – Serious Game</a>
-      </div>
-      <div class="project-card">
-        <img src="projet10/assets/Screenshot 2025-06-17 at 17.19.25.png" alt="Carnet de suivi">
-        <a href="projet10/projet10.html">Projet 10 – Carnet de suivi stage</a>
-      </div>
-      <div class="project-card">
-        <img src="projet11/assets/image.png" alt="Stage POMA">
-        <a href="projet11/projet11.html">Projet 11 – Stage chez POMA</a>
-      </div>
-      <div class="project-card">
-        <img src="projet12/assets/Screenshot 2025-06-17 at 17.33.33.png" alt="Analyse besoin">
-        <a href="projet12/projet12.html">Projet 12 – Développement d’une application CareSenior</a>
-      </div>
-      <div class="project-card">
-        <img src="projet13/assets/image.png" alt="App mobile">
-        <a href="projet13/projet13.html">Projet 13 – Stage chez Rio Tinto</a>
-      </div>
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">OZ</span>Omar Zein</a>
+      <nav class="topbar-links" aria-label="Navigation principale">
+        <a href="index.html#experience" class="hide-sm">Parcours</a>
+        <a href="page-projets.html" class="active">Projets</a>
+        <a href="assets/CV_Omar_Zein.pdf" target="_blank" rel="noopener" class="hide-sm">CV</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
-    <a href="index.html" class="btn-back">&larr; Retour au Portfolio</a>
-  </div>
+  </header>
+
+  <main class="page-wrap" id="content">
+    <header class="page-header">
+      <h1>Mes projets</h1>
+      <p>18 projets réalisés pendant mon Master, mes stages et mon BUT : développement web et API, DevOps, données, jeux et algorithmique.</p>
+
+      <div class="filters" role="group" aria-label="Filtrer par parcours">
+        <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous<span class="count">18</span></button>
+        <button class="filter-btn" type="button" data-filter="master" aria-pressed="false">Master<span class="count">5</span></button>
+        <button class="filter-btn" type="button" data-filter="stage" aria-pressed="false">Stages<span class="count">2</span></button>
+        <button class="filter-btn" type="button" data-filter="but" aria-pressed="false">BUT<span class="count">11</span></button>
+      </div>
+      <div class="search">
+        <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+        <input id="project-search" type="search" placeholder="Rechercher une techno (Java, Docker, SQL…)" aria-label="Rechercher un projet" />
+      </div>
+    </header>
+
+    <div data-projects>
+      <section data-group="master">
+        <h2 class="group-title">Master ILSEN – Avignon Université<small>Ingénierie Logicielle de la Société du Numérique · 2025 – 2027</small></h2>
+        <div class="project-grid">
+        <a class="project-card" href="projet18/projet18.html" data-cat="master">
+          <div class="thumb"><img src="projet18/assets/cover.svg" alt="Yalta Chess" loading="lazy" /><span class="badge-cat">Master ILSEN</span></div>
+          <div class="body">
+            <span class="num">Projet 18</span>
+            <h3>Yalta Chess</h3>
+            <p>Implémentation complète du Yalta, variante des échecs à 3 joueurs sur plateau hexagonal de 96 cases, en Java 21 et JavaFX, avec une IA alpha-bêta multithreadée.</p>
+            <ul class="pill-list"><li class="pill">Java 21</li><li class="pill">JavaFX</li><li class="pill">Maven</li><li class="pill">JUnit 5</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet17/projet17.html" data-cat="master">
+          <div class="thumb"><img src="projet17/assets/cover.svg" alt="Moteur de jeu RPG en Rust" loading="lazy" /><span class="badge-cat">Master ILSEN</span></div>
+          <div class="body">
+            <span class="num">Projet 17</span>
+            <h3>Moteur de jeu RPG en Rust</h3>
+            <p>Moteur de jeu de rôle textuel écrit de zéro en Rust, piloté par des fichiers JSON, avec un jeu complet construit dessus : Chicken Run.</p>
+            <ul class="pill-list"><li class="pill">Rust</li><li class="pill">serde</li><li class="pill">JSON</li><li class="pill">cargo test</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet16/projet16.html" data-cat="master">
+          <div class="thumb"><img src="projet16/assets/cover.svg" alt="Networker – NLP &amp; NER Asimov" loading="lazy" /><span class="badge-cat">Master ILSEN</span></div>
+          <div class="body">
+            <span class="num">Projet 16</span>
+            <h3>Networker – NLP &amp; NER Asimov</h3>
+            <p>Pipeline Python de traitement automatique du langage qui extrait les personnages de romans d&#x27;Asimov, résout leurs alias et reconstruit le réseau de leurs relations sous forme de graphe.</p>
+            <ul class="pill-list"><li class="pill">Python</li><li class="pill">NLP</li><li class="pill">NER</li><li class="pill">spaCy</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet15/projet15.html" data-cat="master">
+          <div class="thumb"><img src="projet15/assets/cover.svg" alt="CERISoNet" loading="lazy" /><span class="badge-cat">Master ILSEN</span></div>
+          <div class="body">
+            <span class="num">Projet 15</span>
+            <h3>CERISoNet</h3>
+            <p>Réseau social du CERI : SPA Angular connectée à une API Node.js/Express en HTTPS, double persistance PostgreSQL + MongoDB et interactions en temps réel via WebSocket.</p>
+            <ul class="pill-list"><li class="pill">Angular</li><li class="pill">TypeScript</li><li class="pill">Node.js</li><li class="pill">Express</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet14/projet14.html" data-cat="master">
+          <div class="thumb"><img src="projet14/assets/cover.svg" alt="cryptoMania" loading="lazy" /><span class="badge-cat">Master ILSEN</span></div>
+          <div class="body">
+            <span class="num">Projet 14</span>
+            <h3>cryptoMania</h3>
+            <p>Plateforme de simulation de trading de cryptomonnaies : SPA React, API FastAPI, traitement asynchrone Celery/RabbitMQ, observabilité Prometheus/Grafana et déploiement Kubernetes.</p>
+            <ul class="pill-list"><li class="pill">React</li><li class="pill">Python</li><li class="pill">FastAPI</li><li class="pill">PostgreSQL</li></ul>
+          </div>
+        </a>
+        </div>
+      </section>
+      <section data-group="stage">
+        <h2 class="group-title">Expériences professionnelles<small>Stages en entreprise</small></h2>
+        <div class="project-grid">
+        <a class="project-card" href="projet13/projet13.html" data-cat="stage">
+          <div class="thumb"><img src="projet13/assets/image.png" class="contain" alt="Stage chez Rio Tinto" loading="lazy" /><span class="badge-cat">Stage</span></div>
+          <div class="body">
+            <span class="num">Projet 13</span>
+            <h3>Stage chez Rio Tinto</h3>
+            <p>Mise en place d&#x27;un système de gouvernance des données pour l&#x27;industrie métallurgique chez Rio Tinto (LRF), incluant DataHub, PostgreSQL et Grafana Business Forms.</p>
+            <ul class="pill-list"><li class="pill">Docker</li><li class="pill">DataHub</li><li class="pill">PostgreSQL</li><li class="pill">Grafana</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet11/projet11.html" data-cat="stage">
+          <div class="thumb"><img src="projet11/assets/image.png" alt="Stage chez POMA" loading="lazy" /><span class="badge-cat">Stage</span></div>
+          <div class="body">
+            <span class="num">Projet 11</span>
+            <h3>Stage chez POMA</h3>
+            <p>Amélioration d’outils internes chez POMA : optimisation d’API, refonte d’interfaces et développement d’automatisations de processus métier.</p>
+            <ul class="pill-list"><li class="pill">Python</li><li class="pill">API</li><li class="pill">Web</li><li class="pill">JavaScript</li></ul>
+          </div>
+        </a>
+        </div>
+      </section>
+      <section data-group="but">
+        <h2 class="group-title">BUT Informatique – IUT2 de Grenoble<small>Parcours Développement d'applications · 2022 – 2025</small></h2>
+        <div class="project-grid">
+        <a class="project-card" href="projet12/projet12.html" data-cat="but">
+          <div class="thumb"><img src="projet12/assets/Screenshot 2025-06-17 at 17.33.33.png" alt="CareSenior" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 12</span>
+            <h3>CareSenior</h3>
+            <p>Développement d’une application de coordination pour le maintien à domicile des personnes âgées : multiacteurs, multi-plateformes, sécurisé et ergonomique.</p>
+            <ul class="pill-list"><li class="pill">Angular</li><li class="pill">TypeScript</li><li class="pill">HTML/CSS</li><li class="pill">Gestion de projet</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet10/projet10.html" data-cat="but">
+          <div class="thumb"><img src="projet10/assets/Screenshot 2025-06-17 at 17.19.25.png" alt="Carnet de suivi de stage" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 10</span>
+            <h3>Carnet de suivi de stage</h3>
+            <p>Amélioration et optimisation d’une application de gestion de candidatures et de suivi de stages pour les étudiants.</p>
+            <ul class="pill-list"><li class="pill">Web</li><li class="pill">Mobile</li><li class="pill">Optimisation</li><li class="pill">UX/UI</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet9/projet9.html" data-cat="but">
+          <div class="thumb"><img src="projet9/assets/Screenshot 2025-06-17 at 17.09.00.png" alt="LabScape" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 09</span>
+            <h3>LabScape</h3>
+            <p>Escape Game éducatif 3D conçu avec Babylon.js, intégrant des mécaniques pédagogiques en physique et chimie.</p>
+            <ul class="pill-list"><li class="pill">Babylon.js</li><li class="pill">Serious Game</li><li class="pill">3D</li><li class="pill">UML</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet8/projet8.html" data-cat="but">
+          <div class="thumb"><img src="projet8/assets/image.png" alt="GameJam" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 08</span>
+            <h3>GameJam</h3>
+            <p>Création d’un jeu éducatif basé sur la vie étudiante à l’IUT2 — programmation Python, interface graphique et modélisation UML.</p>
+            <ul class="pill-list"><li class="pill">Python</li><li class="pill">Jeu vidéo</li><li class="pill">JavaFX</li><li class="pill">UML</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet7/projet7.html" data-cat="but">
+          <div class="thumb"><img src="projet7/assets/image.png" class="contain" alt="Lan Maker" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 07</span>
+            <h3>Lan Maker</h3>
+            <p>Développement d’une application de gestion de tournois esports : modélisation, développement Java, interface JavaFX et gestion projet complet.</p>
+            <ul class="pill-list"><li class="pill">Java</li><li class="pill">JavaFX</li><li class="pill">UML</li><li class="pill">Gestion de projet</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet6/projet6.html" data-cat="but">
+          <div class="thumb"><img src="projet6/assets/image.png" alt="Exploitation d&#x27;une base de données" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 06</span>
+            <h3>Exploitation d&#x27;une base de données</h3>
+            <p>Analyse statistique des accidents de la route en France sur 15 ans à partir d’une base de données nationale.</p>
+            <ul class="pill-list"><li class="pill">SQL</li><li class="pill">Base de données</li><li class="pill">Statistiques</li><li class="pill">Analyse de données</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet5/projet5.html" data-cat="but">
+          <div class="thumb"><img src="projet5/assets/debian-logo.jpg" class="contain" alt="Guide d&#x27;installation serveur Debian 11" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 05</span>
+            <h3>Guide d&#x27;installation serveur Debian 11</h3>
+            <p>Installation et configuration d’un serveur Debian 11 complet avec Apache, PostgreSQL, PHP et documentation technique en anglais.</p>
+            <ul class="pill-list"><li class="pill">Debian 11</li><li class="pill">Apache</li><li class="pill">PostgreSQL</li><li class="pill">PHP</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet4/projet4.html" data-cat="but">
+          <div class="thumb"><img src="projet4/assets/desktop-wallpaper-learn-html-css-by-building-3-projects-launch-your-career-html-css.jpg" alt="Recueil de besoin" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 04</span>
+            <h3>Recueil de besoin</h3>
+            <p>Conception d&#x27;un site web destiné aux élèves de troisième à la recherche de stage, via un recueil de besoin et création de wireframes.</p>
+            <ul class="pill-list"><li class="pill">HTML</li><li class="pill">CSS</li><li class="pill">Wireframe</li><li class="pill">Gestion de projet</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet3/projet3.html" data-cat="but">
+          <div class="thumb"><img src="projet3/assets/Titanic Being Fitted Out 4.jpg" alt="Création base de données Titanic" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 03</span>
+            <h3>Création base de données Titanic</h3>
+            <p>Conception et implémentation d&#x27;une base de données complète autour du naufrage du Titanic en SQL et modélisation SEA.</p>
+            <ul class="pill-list"><li class="pill">SQL</li><li class="pill">Base de données</li><li class="pill">Modélisation</li><li class="pill">Titanic</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet2/projet2.html" data-cat="but">
+          <div class="thumb"><img src="projet2/assets/Java-Logo.png" class="contain" alt="Implémentation besoin client" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 02</span>
+            <h3>Implémentation besoin client</h3>
+            <p>Développement d&#x27;un système de classification de textes en Java à partir d&#x27;un lexique construit et optimisé selon les besoins clients.</p>
+            <ul class="pill-list"><li class="pill">Java</li><li class="pill">Classification</li><li class="pill">Optimisation</li><li class="pill">Écoconception</li></ul>
+          </div>
+        </a>
+        <a class="project-card" href="projet1/projet1.html" data-cat="but">
+          <div class="thumb"><img src="projet1/assets/debian-logo.jpg" class="contain" alt="Installation de Debian" loading="lazy" /><span class="badge-cat">BUT Informatique</span></div>
+          <div class="body">
+            <span class="num">Projet 01</span>
+            <h3>Installation de Debian</h3>
+            <p>Création d&#x27;une machine virtuelle et installation complète de Debian 11 avec configuration et déploiement d’applications.</p>
+            <ul class="pill-list"><li class="pill">Virtualisation</li><li class="pill">Debian 11</li><li class="pill">Configuration</li><li class="pill">Système</li></ul>
+          </div>
+        </a>
+        </div>
+      </section>
+    </div>
+    <p id="empty-state" class="empty-state" hidden>Aucun projet ne correspond à cette recherche.</p>
+  </main>
+
+  <footer class="site-footer">
+    © Omar Zein · <a href="index.html">Accueil</a> · <a href="page-projets.html">Projets</a> · <a href="https://github.com/ZEINOMAR/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/omar-zein-b9200a342/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
